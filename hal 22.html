@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 22 - Daily Blessings Gratitude Log</title>
+    <style>
+        :root {
+            --blessing-purple: #7E57C2;
+            --soft-lavender: #F3E5F5;
+            --gold-accent: #D4AF37;
+            --text-gray: #455A64;
+            --line-color: #CFD8DC;
+        }
+
+        body {
+            font-family: 'Georgia', serif; /* Menggunakan font serif untuk kesan jurnal yang lebih personal */
+            background: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-gray);
+        }
+
+        .page-22 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        /* Dekorasi Sudut */
+        .page-22::before {
+            content: "✨";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: var(--gold-accent);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h2 {
+            color: var(--blessing-purple);
+            font-size: 2.2em;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .header p {
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+        }
+
+        /* GRATITUDE SECTIONS */
+        .gratitude-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            background: var(--soft-lavender);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--blessing-purple);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold-accent);
+        }
+
+        .log-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .log-num {
+            width: 25px;
+            font-weight: bold;
+            color: var(--gold-accent);
+        }
+
+        .log-line {
+            flex-grow: 1;
+            border-bottom: 1px solid var(--line-color);
+            height: 20px;
+        }
+
+        /* MOMENTS SECTION */
+        .moments-box {
+            background: #fffcf0; /* Warm yellow tint */
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px dashed var(--gold-accent);
+            margin-bottom: 35px;
+        }
+
+        .moments-box h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+            color: var(--blessing-purple);
+            text-align: center;
+        }
+
+        .moment-row {
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .moment-row strong {
+            color: #555;
+        }
+
+        /* AFFIRMATIONS */
+        .affirmations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .affirmation-card {
+            padding: 10px;
+            font-size: 0.85em;
+            font-style: italic;
+            border: 1px solid var(--soft-lavender);
+            border-radius: 8px;
+            color: var(--blessing-purple);
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-22 { box-shadow: none; border: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-22">
+    <div class="header">
+        <h2>Daily Blessings</h2>
+        <p>Week 1-2 Gratitude Log</p>
+    </div>
+
+    <div class="gratitude-section">
+        <div class="section-title">Day 1-5: I'm grateful for...</div>
+        <script>
+            for(let i=1; i<=5; i++) {
+                document.write(`<div class="log-item"><span class="log-num">${i}.</span><div class="log-line"></div></div>`);
+            }
+        </script>
+    </div>
+
+    <div class="gratitude-section">
+        <div class="section-title">Day 6-10: Allah blessed me with...</div>
+        <script>
+            for(let i=1; i<=5; i++) {
+                document.write(`<div class="log-item"><span class="log-num">${i}.</span><div class="log-line"></div></div>`);
+            }
+        </script>
+    </div>
+
+    <div class="gratitude-section">
+        <div class="section-title">Day 11-15: I thank Allah for...</div>
+        <script>
+            for(let i=1; i<=5; i++) {
+                document.write(`<div class="log-item"><span class="log-num">${i}.</span><div class="log-line"></div></div>`);
+            }
+        </script>
+    </div>
+
+    <div class="moments-box">
+        <h3>✨ ALHAMDULILLAH MOMENTS</h3>
+        <div class="moment-row"><strong>• Biggest blessing this week:</strong> <span class="log-line" style="display:inline-block; width:60%"></span></div>
+        <div class="moment-row"><strong>• Unexpected joy:</strong> <span class="log-line" style="display:inline-block; width:71%"></span></div>
+        <div class="moment-row"><strong>• Answered dua:</strong> <span class="log-line" style="display:inline-block; width:72%"></span></div>
+        <div class="moment-row"><strong>• Small miracle noticed:</strong> <span class="log-line" style="display:inline-block; width:66%"></span></div>
+        <div class="moment-row"><strong>• Act of kindness received:</strong> <span class="log-line" style="display:inline-block; width:63%"></span></div>
+    </div>
+
+    <div class="affirmations-grid">
+        <div class="affirmation-card">"Alhamdulillah for everything"</div>
+        <div class="affirmation-card">"Allah's plan is the best plan"</div>
+        <div class="affirmation-card">"I trust Allah's timing"</div>
+        <div class="affirmation-card">"Every test is a blessing"</div>
+        <div class="affirmation-card">"Shukr brings more"</div>
+    </div>
+
+    <p style="text-align: center; font-size: 0.8em; color: #999; margin-top: 40px; font-style: italic;">
+        "If you are grateful, I will surely increase you [in favor]." (Ibrahim: 7)
+    </p>
+</div>
+
+</body>
+</html>

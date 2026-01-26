@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 23 - Dua & Reflection</title>
+    <style>
+        :root {
+            --dua-blue: #1A237E;
+            --soft-blue: #E8EAF6;
+            --silver-accent: #B0BEC5;
+            --text-dark: #263238;
+            --line-color: #ECEFF1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-dark);
+        }
+
+        .page-23 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            border-right: 10px solid var(--dua-blue);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--dua-blue);
+            padding-bottom: 10px;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: var(--dua-blue);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* DUA CATEGORIES GRID */
+        .dua-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dua-category {
+            background: var(--soft-blue);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #C5CAE9;
+        }
+
+        .dua-category h3 {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            color: var(--dua-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dua-line {
+            border-bottom: 1px solid white;
+            height: 25px;
+            margin-bottom: 5px;
+        }
+
+        /* ANSWER TRACKER TABLE */
+        .tracker-section h3 {
+            font-size: 1em;
+            color: var(--dua-blue);
+            margin-top: 0;
+        }
+
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 0.85em;
+        }
+
+        .tracker-table th {
+            background: var(--dua-blue);
+            color: white;
+            padding: 10px;
+            border: 1px solid var(--dua-blue);
+        }
+
+        .tracker-table td {
+            border: 1px solid var(--line-color);
+            padding: 8px;
+            height: 30px;
+        }
+
+        /* POWERFUL TIMES & SPECIAL DUA */
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        .times-box {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--silver-accent);
+        }
+
+        .times-box h4 { margin: 0 0 10px 0; font-size: 0.9em; color: var(--dua-blue); }
+        
+        .times-list { list-style: none; padding: 0; margin: 0; font-size: 0.8em; }
+        .times-list li { margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+
+        .special-dua-box {
+            background: #fffdf9;
+            padding: 15px;
+            border: 2px dashed var(--dua-blue);
+            border-radius: 8px;
+        }
+
+        .special-dua-box h4 { margin: 0 0 10px 0; font-size: 0.9em; color: var(--dua-blue); }
+
+        .input-line {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+            height: 25px;
+            background: transparent;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-23 { box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-23">
+    <div class="header">
+        <h2>🤲 MY SPECIAL DO'AS</h2>
+    </div>
+
+    <div class="dua-grid">
+        <div class="dua-category">
+            <h3>👤 For Self</h3>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+        </div>
+        <div class="dua-category">
+            <h3>🏠 For Family</h3>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+        </div>
+        <div class="dua-category">
+            <h3>🌍 For Ummah</h3>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+        </div>
+        <div class="dua-category">
+            <h3>✨ For Akhirah</h3>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+            <div class="dua-line"></div>
+        </div>
+    </div>
+
+    <div class="tracker-section">
+        <h3>📅 DO'A ANSWER TRACKER</h3>
+        <table class="tracker-table">
+            <thead>
+                <tr>
+                    <th width="100">Date Asked</th>
+                    <th>Dua Request</th>
+                    <th width="120">Date Answered</th>
+                    <th>How Answered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bottom-section">
+        <div class="times-box">
+            <h4>⚡ POWERFUL DO'A TIMES</h4>
+            <ul class="times-list">
+                <li>✅ Last third of night</li>
+                <li>✅ Between Adhan & Iqamah</li>
+                <li>✅ While breaking fast</li>
+                <li>✅ During rain</li>
+                <li>✅ Laylatul Qadr</li>
+                <li>✅ Friday afternoon</li>
+                <li>✅ While traveling</li>
+            </ul>
+        </div>
+
+        <div class="special-dua-box">
+            <h4>🌙 MY LAYLATUL QADR DO'A:</h4>
+            <div class="input-line"></div>
+            <div class="input-line"></div>
+            <div class="input-line"></div>
+            <p style="font-size: 0.7em; font-style: italic; color: #666; margin-top: 10px;">
+                "Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni"
+            </p>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center; font-size: 0.8em; color: #555;">
+        <em>"Call upon Me; I will respond to you." (Ghafir: 60)</em>
+    </div>
+</div>
+
+</body>
+</html>

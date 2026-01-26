@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 21 - Shopping List & Hydration</title>
+    <style>
+        :root {
+            --grocery-green: #43A047;
+            --hydration-blue: #0288D1;
+            --border-color: #E0E0E0;
+            --bg-light: #F8F9FA;
+            --text-dark: #2C3E50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-dark);
+        }
+
+        .page-21 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            border-left: 10px solid var(--grocery-green);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--grocery-green);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .header h2 { margin: 0; color: var(--grocery-green); letter-spacing: 1px; }
+
+        /* GROCERY LIST GRID */
+        .grocery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .category-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            background: var(--bg-light);
+        }
+
+        .category-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            color: var(--grocery-green);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85em;
+        }
+
+        .item input[type="checkbox"] { cursor: pointer; }
+
+        /* HYDRATION TRACKER */
+        .hydration-section {
+            background: #E1F5FE;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid var(--hydration-blue);
+        }
+
+        .hydration-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .hydration-header h3 { margin: 0; color: var(--hydration-blue); }
+
+        .water-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .water-table th { background: var(--hydration-blue); color: white; padding: 10px; font-size: 0.9em; }
+        .water-table td { border: 1px solid #B3E5FC; padding: 8px; text-align: center; font-size: 0.85em; }
+
+        /* NUTRITION TIPS */
+        .tips-row {
+            display: flex;
+            justify-content: space-around;
+            background: #F1F8E9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px dashed var(--grocery-green);
+        }
+
+        .tip-item {
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #388E3C;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .input-line {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            background: transparent;
+            outline: none;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-21 { box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-21">
+    <div class="header">
+        <h2>🛒 RAMADAN GROCERY LIST</h2>
+        <span style="font-size: 0.8em; color: #666;">Page 21</span>
+    </div>
+
+    <div class="grocery-grid">
+        <div class="category-box">
+            <h3>ESSENTIALS</h3>
+            <div class="item-list">
+                <label class="item"><input type="checkbox"> Dates</label>
+                <label class="item"><input type="checkbox"> Honey</label>
+                <label class="item"><input type="checkbox"> Olive oil</label>
+                <label class="item"><input type="checkbox"> Whole grains</label>
+                <label class="item"><input type="checkbox"> Oats</label>
+                <label class="item"><input type="checkbox"> Brown rice</label>
+                <label class="item"><input type="checkbox"> Nuts/Seeds</label>
+                <label class="item"><input type="checkbox"> Zamzam</label>
+            </div>
+        </div>
+
+        <div class="category-box">
+            <h3>PROTEINS</h3>
+            <div class="item-list">
+                <label class="item"><input type="checkbox"> Chicken</label>
+                <label class="item"><input type="checkbox"> Fish</label>
+                <label class="item"><input type="checkbox"> Eggs</label>
+                <label class="item"><input type="checkbox"> Lentils</label>
+                <label class="item"><input type="checkbox"> Chickpeas</label>
+                <label class="item"><input type="checkbox"> Yogurt</label>
+                <label class="item"><input type="checkbox"> Cheese</label>
+                <label class="item"><input type="checkbox"> Tofu</label>
+            </div>
+        </div>
+
+        <div class="category-box">
+            <h3>FRUITS & VEGGIES</h3>
+            <div class="item-list">
+                <label class="item"><input type="checkbox"> Watermelon</label>
+                <label class="item"><input type="checkbox"> Oranges</label>
+                <label class="item"><input type="checkbox"> Apples</label>
+                <label class="item"><input type="checkbox"> Bananas</label>
+                <label class="item"><input type="checkbox"> Cucumber</label>
+                <label class="item"><input type="checkbox"> Tomatoes</label>
+                <label class="item"><input type="checkbox"> Greens</label>
+                <label class="item"><input type="checkbox"> Avocado</label>
+            </div>
+        </div>
+
+        <div class="category-box">
+            <h3>BEVERAGES</h3>
+            <div class="item-list" style="display: block;">
+                <label class="item" style="margin-bottom: 5px;"><input type="checkbox"> Coconut water</label>
+                <label class="item" style="margin-bottom: 5px;"><input type="checkbox"> Fresh juice</label>
+                <label class="item" style="margin-bottom: 5px;"><input type="checkbox"> Milk / Tea</label>
+                <label class="item" style="margin-bottom: 5px;"><input type="checkbox"> Rose syrup</label>
+                <input type="text" class="input-line" placeholder="Other: ____________">
+            </div>
+        </div>
+    </div>
+
+    <div class="hydration-section">
+        <div class="hydration-header">
+            <h3>💧 HYDRATION TRACKER</h3>
+            <span style="font-size: 0.85em; font-weight: bold;">Goal: 8 Glasses / Day</span>
+        </div>
+        <table class="water-table">
+            <thead>
+                <tr>
+                    <th>Time Period</th>
+                    <th>Amount</th>
+                    <th>✓</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Iftar</td><td>2 glasses</td><td>□</td></tr>
+                <tr><td>After Maghrib</td><td>1 glass</td><td>□</td></tr>
+                <tr><td>After Dinner</td><td>1 glass</td><td>□</td></tr>
+                <tr><td>After Tarawih</td><td>1 glass</td><td>□</td></tr>
+                <tr><td>Before Sleep</td><td>1 glass</td><td>□</td></tr>
+                <tr><td>Tahajjud</td><td>1 glass</td><td>□</td></tr>
+                <tr><td>Suhur</td><td>1 glass</td><td>□</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tips-row">
+        <div class="tip-item">🚫 No Fried Food</div>
+        <div class="tip-item">🧂 Less Salt</div>
+        <div class="tip-item">🐢 Eat Slowly</div>
+        <div class="tip-item">🥬 More Fiber</div>
+        <div class="tip-item">💦 Stay Hydrated</div>
+    </div>
+
+    <p style="text-align: center; font-size: 0.75em; color: #999; margin-top: 20px;">
+        "Strong believer is better and more beloved to Allah than a weak believer." (Hadith Sahih)
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 3 - Ramadan Goals 2026</title>
+    <style>
+        :root {
+            --rose-gold: #B76E79;
+            --soft-rose: #FDF2F2;
+            --accent-gold: #D4AF37;
+            --text-main: #37474F;
+            --border-color: #ECEFF1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+        }
+
+        .page-3 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            border-top: 15px solid var(--rose-gold);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--rose-gold);
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        /* GOALS GRID */
+        .goals-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .goal-category {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .goal-category h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--rose-gold);
+            border-bottom: 2px solid var(--soft-rose);
+            padding-bottom: 8px;
+        }
+
+        .goal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .goal-item input[type="checkbox"] {
+            margin-top: 3px;
+            accent-color: var(--rose-gold);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .line-input {
+            flex-grow: 1;
+            border: none;
+            border-bottom: 1px dashed #ccc;
+            background: transparent;
+            outline: none;
+            font-family: inherit;
+            padding: 0 5px;
+        }
+
+        /* DUA SECTION */
+        .dua-section {
+            margin-top: auto;
+            background: var(--soft-rose);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--rose-gold);
+        }
+
+        .dua-section h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+            color: var(--rose-gold);
+            text-align: center;
+        }
+
+        .dua-input-area {
+            height: 100px;
+            background: repeating-linear-gradient(transparent, transparent 31px, #e0b0b6 31px, #e0b0b6 32px);
+            line-height: 32px;
+            padding: 0 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-3 { box-shadow: none; border-top: 15px solid #B76E79 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-3">
+    <div class="header">
+        <h2>My Ramadan Goals</h2>
+        <p>INTENTIONS & ASPIRATIONS</p>
+    </div>
+
+    <div class="goals-container">
+        <div class="goal-category">
+            <h3>🤲 SPIRITUAL</h3>
+            <div class="goal-list">
+                <div class="goal-item"><input type="checkbox"> Complete full Quran recitation</div>
+                <div class="goal-item"><input type="checkbox"> Pray all 5 daily prayers on time</div>
+                <div class="goal-item"><input type="checkbox"> Perform 20 rakah Tarawih nightly</div>
+                <div class="goal-item"><input type="checkbox"> Catch Laylatul Qadr</div>
+                <div class="goal-item"><input type="checkbox"> Memorize <input type="text" class="line-input" style="width:30px"> new Surahs</div>
+                <div class="goal-item"><input type="checkbox"> Learn 99 Names of Allah</div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+            </div>
+        </div>
+
+        <div class="goal-category">
+            <h3>📿 IBADAH</h3>
+            <div class="goal-list">
+                <div class="goal-item"><input type="checkbox"> Never miss Suhur</div>
+                <div class="goal-item"><input type="checkbox"> Pray Tahajjud <input type="text" class="line-input" style="width:30px"> times weekly</div>
+                <div class="goal-item"><input type="checkbox"> Give charity daily</div>
+                <div class="goal-item"><input type="checkbox"> Perform Itikaf last 10 days</div>
+                <div class="goal-item"><input type="checkbox"> Make sincere Taubah</div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+            </div>
+        </div>
+
+        <div class="goal-category">
+            <h3>💪 PERSONAL</h3>
+            <div class="goal-list">
+                <div class="goal-item"><input type="checkbox"> Break bad habit: <input type="text" class="line-input"></div>
+                <div class="goal-item"><input type="checkbox"> Develop habit: <input type="text" class="line-input"></div>
+                <div class="goal-item"><input type="checkbox"> Read <input type="text" class="line-input" style="width:30px"> Islamic books</div>
+                <div class="goal-item"><input type="checkbox"> Attend <input type="text" class="line-input" style="width:30px"> Islamic lectures</div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+            </div>
+        </div>
+
+        <div class="goal-category">
+            <h3>👨‍👩‍👧‍👦 FAMILY</h3>
+            <div class="goal-list">
+                <div class="goal-item"><input type="checkbox"> Host <input type="text" class="line-input" style="width:30px"> Iftar gatherings</div>
+                <div class="goal-item"><input type="checkbox"> Teach children about Ramadan</div>
+                <div class="goal-item"><input type="checkbox"> Reconcile with: <input type="text" class="line-input"></div>
+                <div class="goal-item"><input type="checkbox"> Help <input type="text" class="line-input" style="width:30px"> people in need</div>
+                <div class="goal-item"><input type="checkbox"> <input type="text" class="line-input"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dua-section">
+        <h3>MY RAMADAN DO'A</h3>
+        <div class="dua-input-area">
+            </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px; font-size: 0.8em; color: #999; font-style: italic;">
+        "Actions are judged by intentions." (Bukhari)
+    </div>
+</div>
+
+</body>
+</html>

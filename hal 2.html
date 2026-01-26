@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 2 - Welcome & Bismillah</title>
+    <style>
+        :root {
+            --rose-gold: #B76E79;
+            --soft-gold: #EACDA3;
+            --text-dark: #4A4A4A;
+            --bg-cream: #FFFCF9;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .page-2 {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--bg-cream);
+            margin: 0 auto;
+            padding: 60px 80px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            border-right: 8px solid var(--rose-gold);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bismillah {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: var(--rose-gold);
+            font-family: 'Times New Roman', serif;
+        }
+
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--rose-gold);
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .letter-body {
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .instruction-box {
+            background: #fff;
+            border: 1px solid var(--soft-gold);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .instruction-box h3 {
+            margin-top: 0;
+            color: var(--rose-gold);
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instruction-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .instruction-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkmark {
+            color: var(--rose-gold);
+            font-weight: bold;
+        }
+
+        /* DATES SECTION */
+        .dates-container {
+            display: flex;
+            justify-content: space-between;
+            background: var(--soft-gold);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .date-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .date-item strong {
+            display: block;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .date-item span {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .quote-footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .quote-footer p {
+            font-style: italic;
+            color: #888;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-2 { box-shadow: none; width: 100%; border-right: 8px solid #B76E79 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-2">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+    <div class="welcome-header">
+        <h2>Welcome to Your Ramadan Journey 2026</h2>
+    </div>
+
+    <div class="letter-body">
+        <p>Dear Sister,</p>
+        <p>This planner is your companion for a blessed and organized Ramadan. In the midst of our busy lives, this holy month offers a sanctuary for the soul. May this planner help you maximize every moment, turning your daily efforts into beautiful acts of worship. May Allah accept your intentions and grant you a Ramadan full of barakah.</p>
+    </div>
+
+    <div class="instruction-box">
+        <h3>How to Use This Planner:</h3>
+        <ul class="instruction-list">
+            <li><span class="checkmark">✓</span> Set your intentions and goals on page 3</li>
+            <li><span class="checkmark">✓</span> Use daily trackers consistently for accountability</li>
+            <li><span class="checkmark">✓</span> Review your weekly progress every Friday</li>
+            <li><span class="checkmark">✓</span> Celebrate small wins and stay positive</li>
+            <li><span class="checkmark">✓</span> Make constant dua for success and steadfastness</li>
+        </ul>
+    </div>
+
+    <div class="dates-container">
+        <div class="date-item">
+            <strong>First Day</strong>
+            <span>Feb 19, 2026</span>
+        </div>
+        <div style="width: 1px; background: rgba(255,255,255,0.3);"></div>
+        <div class="date-item">
+            <strong>Last Day</strong>
+            <span>Mar 19, 2026</span>
+        </div>
+        <div style="width: 1px; background: rgba(255,255,255,0.3);"></div>
+        <div class="date-item">
+            <strong>Eid ul-Fitr</strong>
+            <span>Mar 20, 2026</span>
+        </div>
+    </div>
+
+    <div class="quote-footer">
+        <p>"The month of Ramadan is the one in which the Quran was revealed, a guidance for the people and clear proofs of guidance and criterion." (2:185)</p>
+    </div>
+</div>
+
+</body>
+</html>

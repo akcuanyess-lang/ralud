@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 18 - Daily Sunnah Practices</title>
+    <style>
+        :root {
+            --morning-gold: #FF9800;
+            --afternoon-sky: #03A9F4;
+            --evening-night: #3F51B5;
+            --border-gray: #ECEFF1;
+            --text-main: #37474F;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-main);
+        }
+
+        .page-18 {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            border-top: 10px solid var(--morning-gold);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h2 {
+            margin: 0;
+            letter-spacing: 2px;
+            color: #222;
+        }
+
+        /* SUNNAH GRID */
+        .sunnah-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .sunnah-column {
+            border-radius: 12px;
+            padding: 15px;
+            background: #fafafa;
+            border: 1px solid var(--border-gray);
+        }
+
+        .col-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+
+        /* Column Specific Colors */
+        .morning { border-bottom-color: var(--morning-gold); color: var(--morning-gold); }
+        .afternoon { border-bottom-color: var(--afternoon-sky); color: var(--afternoon-sky); }
+        .evening { border-bottom-color: var(--evening-night); color: var(--evening-night); }
+
+        .sunnah-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sunnah-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.88em;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .sunnah-item input[type="checkbox"] {
+            margin-top: 3px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* WEEKLY GOALS SECTION */
+        .goals-section {
+            background: #fff;
+            border: 2px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .goals-section h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #333;
+        }
+
+        .goal-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .goal-label {
+            width: 80px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .goal-line {
+            flex-grow: 1;
+            border-bottom: 1px dashed #999;
+            margin-left: 10px;
+            height: 20px;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-18 { box-shadow: none; border: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-18">
+    <div class="header">
+        <h2>DAILY SUNNAH PRACTICES</h2>
+        <p style="color: #888; font-size: 0.9em;">Revive the Sunnah, Reap the Rewards</p>
+    </div>
+
+    <div class="sunnah-container">
+        <div class="sunnah-column">
+            <div class="col-title morning">☀️ MORNING</div>
+            <ul class="sunnah-list">
+                <li class="sunnah-item"><input type="checkbox"> Wake up with Dua</li>
+                <li class="sunnah-item"><input type="checkbox"> Miswak/Brush teeth</li>
+                <li class="sunnah-item"><input type="checkbox"> Wudhu perfectly</li>
+                <li class="sunnah-item"><input type="checkbox"> Tahiyyatul Wudhu (2 rakah)</li>
+                <li class="sunnah-item"><input type="checkbox"> Morning Adhkar</li>
+                <li class="sunnah-item"><input type="checkbox"> Recite Ayatul Kursi</li>
+                <li class="sunnah-item"><input type="checkbox"> Last 2 verses Al-Baqarah</li>
+                <li class="sunnah-item"><input type="checkbox"> Send Salawat ﷺ</li>
+                <li class="sunnah-item"><input type="checkbox"> Dua for parents</li>
+                <li class="sunnah-item"><input type="checkbox"> Smile to family</li>
+            </ul>
+        </div>
+
+        <div class="sunnah-column">
+            <div class="col-title afternoon">🌅 AFTERNOON</div>
+            <ul class="sunnah-list">
+                <li class="sunnah-item"><input type="checkbox"> Maintain Wudhu</li>
+                <li class="sunnah-item"><input type="checkbox"> Remember Allah at work</li>
+                <li class="sunnah-item"><input type="checkbox"> Lower gaze</li>
+                <li class="sunnah-item"><input type="checkbox"> Speak good or silent</li>
+                <li class="sunnah-item"><input type="checkbox"> Help someone in need</li>
+                <li class="sunnah-item"><input type="checkbox"> Feed a fasting person</li>
+                <li class="sunnah-item"><input type="checkbox"> Share Islamic reminder</li>
+                <li class="sunnah-item"><input type="checkbox"> Avoid gossip/backbiting</li>
+                <li class="sunnah-item"><input type="checkbox"> Make Istighfar 100x</li>
+                <li class="sunnah-item"><input type="checkbox"> Al-Kahf (Friday)</li>
+            </ul>
+        </div>
+
+        <div class="sunnah-column">
+            <div class="col-title evening">🌙 EVENING</div>
+            <ul class="sunnah-list">
+                <li class="sunnah-item"><input type="checkbox"> Break fast (dates/water)</li>
+                <li class="sunnah-item"><input type="checkbox"> Dua before Iftar</li>
+                <li class="sunnah-item"><input type="checkbox"> Pray Maghrib on time</li>
+                <li class="sunnah-item"><input type="checkbox"> Eat with right hand</li>
+                <li class="sunnah-item"><input type="checkbox"> Thank Allah for food</li>
+                <li class="sunnah-item"><input type="checkbox"> Night Adhkar</li>
+                <li class="sunnah-item"><input type="checkbox"> Family Quran time</li>
+                <li class="sunnah-item"><input type="checkbox"> Seek Laylatul Qadr</li>
+                <li class="sunnah-item"><input type="checkbox"> Sleep with Wudhu</li>
+                <li class="sunnah-item"><input type="checkbox"> Sleep on right side</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="goals-section">
+        <h3>WEEKLY SUNNAH GOALS</h3>
+        <div class="goal-row">
+            <div class="goal-label">Week 1:</div>
+            <div class="goal-line"></div>
+        </div>
+        <div class="goal-row">
+            <div class="goal-label">Week 2:</div>
+            <div class="goal-line"></div>
+        </div>
+        <div class="goal-row">
+            <div class="goal-label">Week 3:</div>
+            <div class="goal-line"></div>
+        </div>
+        <div class="goal-row">
+            <div class="goal-label">Week 4:</div>
+            <div class="goal-line"></div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center; font-size: 0.8em; color: #aaa;">
+        <em>"Whoever revives a Sunnah of mine... he will have a reward like that of those who act upon it." (Ibn Majah)</em>
+    </div>
+</div>
+
+</body>
+</html>
