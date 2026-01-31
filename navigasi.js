@@ -19,7 +19,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 2. Buat Tampilan Visual
     const navHTML = `
-         <nav>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd;">
+            <div style="flex: 1; text-align: left;">
+                <button class="nav-btn-prev" onclick="pindah(-1)" style="visibility: ${angkaSekarang <= 1 ? 'hidden' : 'visible'}; padding: 10px 18px; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #fff;">&larr; Prev</button>
+            </div>
+            <div style="flex: 1; text-align: center; font-size: 14px; color: #666;">
+                HALAMAN <b>${angkaSekarang}</b> DARI ${totalHalaman}
+                <div style="font-size: 10px; color: #aaa; margin-top: 5px;">Gunakan Tombol Panah &larr; &rarr; di Keyboard</div>
+            </div>
+            <div style="flex: 1; text-align: right;">
+                <button class="nav-btn-next" onclick="pindah(1)" style="visibility: ${angkaSekarang >= totalHalaman ? 'hidden' : 'visible'}; padding: 10px 18px; cursor: pointer; border-radius: 6px; border: none; background: #007bff; color: white;">Next &rarr;</button>
+            </div>
+        </div>
+          <nav>
         <a href="2/index.html">2</a>
         <a href="3/index.html">3</a>
         <a href="hal4-17/index.html">4</a>
@@ -51,18 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
         <a href="24/index.html">24</a>
         <a href="25/index.html">25</a>
         </nav>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd;">
-            <div style="flex: 1; text-align: left;">
-                <button class="nav-btn-prev" onclick="pindah(-1)" style="visibility: ${angkaSekarang <= 1 ? 'hidden' : 'visible'}; padding: 10px 18px; cursor: pointer; border-radius: 6px; border: 1px solid #ccc; background: #fff;">&larr; Prev</button>
-            </div>
-            <div style="flex: 1; text-align: center; font-size: 14px; color: #666;">
-                HALAMAN <b>${angkaSekarang}</b> DARI ${totalHalaman}
-                <div style="font-size: 10px; color: #aaa; margin-top: 5px;">Gunakan Tombol Panah &larr; &rarr; di Keyboard</div>
-            </div>
-            <div style="flex: 1; text-align: right;">
-                <button class="nav-btn-next" onclick="pindah(1)" style="visibility: ${angkaSekarang >= totalHalaman ? 'hidden' : 'visible'}; padding: 10px 18px; cursor: pointer; border-radius: 6px; border: none; background: #007bff; color: white;">Next &rarr;</button>
-            </div>
-        </div>
     `;
     document.body.insertAdjacentHTML('beforeend', navHTML);
 
