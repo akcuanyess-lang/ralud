@@ -1,110 +1,135 @@
-/* Membuat Konten berada di tengah dan terpisah dari navigasi */
-.content-wrapper {
-    max-width: 800px;    /* Lebar konten maksimal */
-    margin: 40px auto;   /* Jarak atas-bawah dan rata tengah */
-    padding: 20px;
-    background: #ffffff; /* Warna putih bersih untuk konten */
-    border: 1px solid #eee;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    min-height: 60vh;    /* Agar konten punya ruang minimal */
-}
-
-/* Navigasi Atas tetap di atas */
-#main-nav {
-    background-color: #f8f9fa;
-    padding: 15px;
-    position: sticky;    /* Membuat navigasi menempel saat di-scroll */
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid #ddd;
-}
-
-/* Footer Navigasi di paling bawah */
-.footer-nav {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-top: 2px solid #ddd;
-}
+/* =========================================
+   1. PENGATURAN DASAR (RESET)
+   ========================================= */
 body {
-    background-color: #e9ecef; /* Warna abu-abu muda di luar konten */
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; /* Warna dasar abu-abu muda luar konten */
+    color: #333;
+    line-height: 1.6;
+    /* Beri ruang bawah agar konten tidak tertutup tombol melayang */
+    padding-bottom: 100px; 
+    animation: fadeInPage 0.5s ease-in-out;
 }
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   2. NAVIGASI ANGKA (HEADER - STICKY)
+   ========================================= */
 #main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* MEMAKSA ANGKA KE TENGAH */
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.95); /* Sedikit transparan tapi solid */
-    backdrop-filter: blur(5px); /* Efek blur kaca yang modern */
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
     z-index: 1000;
     border-bottom: 1px solid #ddd;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-/* Navigasi Daftar Angka */
-#main-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    padding: 20px;
-    font-family: sans-serif;
 }
 
 #main-nav a {
     text-decoration: none;
     color: #555;
     padding: 6px 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: all 0.2s;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    background: white;
+    transition: all 0.2s ease;
 }
 
 #main-nav a:hover {
-    background-color: #007bff;
+    background: #007bff;
     color: white;
     border-color: #007bff;
+    transform: translateY(-2px);
 }
 
-/* Container Tombol Bawah */
-/* Container tombol dibuat melayang di bagian bawah layar */
+/* =========================================
+   3. PEMBUNGKUS KONTEN (TENGAH)
+   ========================================= */
+.content-wrapper {
+    max-width: 850px;       /* Lebar konten agar tidak terlalu melar */
+    margin: 30px auto;      /* Rata tengah otomatis */
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    min-height: 400px;      /* Tinggi minimal area konten */
+}
+
+/* =========================================
+   4. TOMBOL NAVIGASI (FLOATING/MELAYANG)
+   ========================================= */
 .button-container {
-    position: fixed;
-    bottom: 20px;       /* Jarak dari bawah layar */
+    position: fixed;        /* Menempel di layar */
+    bottom: 30px;
     left: 0;
-    right: 0;
+    width: 100%;            /* Rentangkan selebar layar */
     display: flex;
-    justify-content: space-between; /* Satu kiri, satu kanan */
-    padding: 0 30px;    /* Jarak dari pinggir layar */
-    pointer-events: none; /* Supaya area kosong di tengah tidak menghalangi klik konten */
-    z-index: 9999;
+    justify-content: space-between; /* Kiri dan Kanan */
+    padding: 0 40px;        /* Jarak dari pinggir layar */
+    box-sizing: border-box;
+    pointer-events: none;   /* Area kosong tidak menghalangi scroll */
+    z-index: 2000;
 }
 
-/* Pastikan tombol tetap bisa diklik */
 .nav-btn {
-    pointer-events: auto;
-    padding: 12px 20px;
-    font-size: 14px;
-    border-radius: 50px; /* Bentuk lebih membulat/kapsul */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    pointer-events: auto;   /* Tombol harus tetap bisa diklik */
+    padding: 15px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 50px;    /* Bentuk kapsul modern */
+    cursor: pointer;
+    /* Gradasi Biru Premium */
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* Tambahkan jarak di bagian paling bawah body agar konten terakhir tidak tertutup tombol */
-body {
-    padding-bottom: 100px;
+.nav-btn:hover:not(:disabled) {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.5);
 }
+
+.nav-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.nav-btn:disabled {
+    background: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Responsif untuk HP */
 @media (max-width: 600px) {
-    .nav-btn {
-        padding: 10px 15px;
-        font-size: 12px;
+    .content-wrapper {
+        margin: 10px;
+        padding: 20px;
     }
     .button-container {
-        padding: 0 15px;
-        bottom: 15px;
+        padding: 0 20px;
+        bottom: 20px;
+    }
+    .nav-btn {
+        padding: 12px 18px;
+        font-size: 13px;
     }
 }
