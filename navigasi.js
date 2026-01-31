@@ -33,48 +33,51 @@ const daftarHalaman = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-    const pathFull = window.location.pathname;
-    
-    // Logika deteksi: Jika path kosong atau berakhir dengan '/', anggap sebagai index.html
-    const currentPage = pathFull.endsWith('/') || pathFull === '' ? "index.html" : pathFull;
+    const fullPath = window.location.pathname;
 
-    const currentIndex = daftarHalaman.findIndex(link => {
-        return currentPage.includes(link);
-    });
+    // Mencari index halaman saat ini
+    let currentIndex = -1;
+    for (let i = 0; i < daftarHalaman.length; i++) {
+        // Cek apakah URL saat ini mengandung nama folder/file dari daftar
+        if (fullPath.includes("/" + daftarHalaman[i]) || (i === 0 && fullPath.endsWith("/"))) {
+            currentIndex = i;
+            break;
+        }
+    }
 
-    // JIKA HALAMAN DITEMUKAN DALAM DAFTAR
     if (currentIndex !== -1) {
+        // Tambahkan HTML ke Body
         const navHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd; font-family: sans-serif;">
                 <div style="flex: 1; text-align: left;">
-                    <button id="btnPrev" style="visibility: ${currentIndex === 0 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; background: #fff;">&larr; Kiri</button>
+                    <button id="btnPrev" style="visibility: ${currentIndex === 0 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer;">&larr; Kiri</button>
                 </div>
                 <div style="flex: 1; text-align: center; font-size: 14px; color: #888;">
                     Halaman ${currentIndex + 1} dari ${daftarHalaman.length}
                 </div>
                 <div style="flex: 1; text-align: right;">
-                    <button id="btnNext" style="visibility: ${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; border-radius: 5px; border: none; background: #007bff; color: white;">Kanan &rarr;</button>
+                    <button id="btnNext" style="visibility: ${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px;">Kanan &rarr;</button>
                 </div>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', navHTML);
 
-        document.getElementById("btnPrev")?.addEventListener("click", () => pindah(currentIndex - 1));
-        document.getElementById("btnNext")?.addEventListener("click", () => pindah(currentIndex + 1));
+        // Fungsi navigasi yang lebih aman
+        const navigasi = (targetIdx) => {
+            if (targetIdx >= 0 && targetIdx < daftarHalaman.length) {
+                // Menghitung base URL (kembali ke folder utama)
+                const depth = (daftarHalaman[currentIndex].match(/\//g) || []).length;
+                const prefix = depth > 0 ? "../".repeat(depth) : "";
+                window.location.href = prefix + daftarHalaman[targetIdx];
+            }
+        };
+
+        document.getElementById("btnPrev")?.addEventListener("click", () => navigasi(currentIndex - 1));
+        document.getElementById("btnNext")?.addEventListener("click", () => navigasi(currentIndex + 1));
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowLeft" && currentIndex > 0) pindah(currentIndex - 1);
-            if (e.key === "ArrowRight" && currentIndex < daftarHalaman.length - 1) pindah(currentIndex + 1);
+            if (e.key === "ArrowLeft") navigasi(currentIndex - 1);
+            if (e.key === "ArrowRight") navigasi(currentIndex + 1);
         });
     }
 });
-
-function pindah(targetIndex) {
-    if (targetIndex >= 0 && targetIndex < daftarHalaman.length) {
-        // Mencari alamat dasar website (URL Root)
-        const currentLink = daftarHalaman.find(l => window.location.pathname.includes(l)) || "index.html";
-        const rootPath = window.location.href.split(currentLink)[0];
-        window.location.href = rootPath + daftarHalaman[targetIndex];
-    }
-}
-
