@@ -1,104 +1,79 @@
 /* Reset Dasar */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Silakan hapus warna merahnya jika sudah ok */
+    background-color: #f0f2f5; /* Hapus warna merah jika sudah ok */
     font-family: Arial, sans-serif;
     padding-bottom: 100px;
 }
 
-/* PERBAIKAN NAVIGASI ANGKA - AGAR DI TENGAH */
+/* NAVIGASI ATAS - PASTI DI TENGAH */
 #main-nav {
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: center !important; /* MEMAKSA KE TENGAH SECARA HORIZONTAL */
-    align-items: center !important;     /* MEMAKSA KE TENGAH SECARA VERTIKAL */
+    justify-content: center !important; /* Horisontal Tengah */
+    align-items: center !important;     /* Vertikal Tengah */
     flex-wrap: wrap !important;
-    gap: 12px !important;
-    padding: 20px !important;
-    background: white !important;
-    width: 100% !important;
-    margin: 0 auto !important;          /* MEMASTIKAN KONTAINERNYA DI TENGAH */
-    border-bottom: 2px solid #eee;
-    text-align: center !important;      /* CADANGAN JIKA FLEXBOX GAGAL */
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    list-style: none; /* Menghilangkan titik jika ada <ul> */
 }
 
 #main-nav a {
-    display: inline-flex !important;    /* MEMBUAT LINK SEPERTI KOTAK */
-    justify-content: center !important;
-    align-items: center !important;
-    text-decoration: none !important;
-    color: #007bff !important;
-    padding: 10px 18px !important;
-    border: 2px solid #007bff !important;
-    border-radius: 8px !important;
-    font-weight: bold !important;
-    background: white !important;
-    min-width: 45px !important;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #007bff;
+    padding: 8px 15px;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    font-weight: bold;
+    background: white;
+    transition: 0.3s;
 }
 
 #main-nav a:hover {
-    background: #007bff !important;
-    color: white !important;
+    background: #007bff;
+    color: white;
 }
 
-/* KONTEN TENGAH */
+/* KONTEN TENGAH - TETAP DI TENGAH */
 .content-wrapper {
     max-width: 800px;
-    margin: 30px auto !important;
+    margin: 40px auto !important; /* ATAS-BAWAH 40px, KIRI-KANAN OTOMATIS TENGAH */
     background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left; /* Teks di dalam konten tetap rata kiri agar enak dibaca */
+    display: block; /* Memastikan dia bukan elemen flex yang aneh */
 }
 
-/* TOMBOL MELAYANG */
+/* TOMBOL NAVIGASI BAWAH */
 .button-container {
-    position: fixed !important;
-    bottom: 30px !important;
-    left: 0 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    padding: 0 50px !important;
-    pointer-events: none !important;
-    z-index: 9999 !important;
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 .nav-btn {
-    pointer-events: auto !important;
-    padding: 15px 30px !important;
-    background: #007bff !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 50px !important;
-    cursor: pointer !important;
-    font-weight: bold !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
-}
-* {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-/* Tambahkan ini di bagian paling bawah style.css */
-#main-nav {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    left: 0 !important;
-    right: 0 !important;
-}
-
-/* Memastikan body tidak memberikan dorongan ke kiri */
-body {
-    text-align: center; 
-}
-
-/* Mengembalikan teks konten agar tetap rata kiri/kanan (opsional) */
-.content-wrapper {
-    text-align: left; 
+    pointer-events: auto;
+    padding: 15px 30px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
