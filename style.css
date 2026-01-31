@@ -24,37 +24,29 @@
 }
 
 /* Container Tombol Bawah */
+/* Container tombol dibuat melayang di bagian bawah layar */
 .button-container {
+    position: fixed;
+    bottom: 20px;       /* Jarak dari bawah layar */
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 40px 0;
+    justify-content: space-between; /* Satu kiri, satu kanan */
+    padding: 0 30px;    /* Jarak dari pinggir layar */
+    pointer-events: none; /* Supaya area kosong di tengah tidak menghalangi klik konten */
+    z-index: 9999;
 }
 
+/* Pastikan tombol tetap bisa diklik */
 .nav-btn {
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #28a745; /* Hijau agar kontras */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.1s, background 0.2s;
+    pointer-events: auto;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 50px; /* Bentuk lebih membulat/kapsul */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-.nav-btn:hover:not(:disabled) {
-    background-color: #218838;
-    transform: translateY(-2px);
-}
-
-.nav-btn:active:not(:disabled) {
-    transform: translateY(0);
-}
-
-.nav-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    box-shadow: none;
+/* Tambahkan jarak di bagian paling bawah body agar konten terakhir tidak tertutup tombol */
+body {
+    padding-bottom: 100px;
 }
