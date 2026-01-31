@@ -1,4 +1,3 @@
- <script>
 const daftarHalaman = [
     "index.html", 
     "2/index.html",
@@ -78,4 +77,4 @@ function pindah(targetIndex) {
         window.location.href = rootPath + daftarHalaman[targetIndex];
     }
 }
-</script>
+
