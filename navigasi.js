@@ -1,6 +1,6 @@
  <script>
 const daftarHalaman = [
-    "index.html", // Halaman Utama
+    "index.html", 
     "2/index.html",
     "3/index.html",
     "hal4-17/index.html",
@@ -36,12 +36,14 @@ const daftarHalaman = [
 document.addEventListener("DOMContentLoaded", function() {
     const pathFull = window.location.pathname;
     
-    // Mencari halaman saat ini dalam daftar
+    // Logika deteksi: Jika path kosong atau berakhir dengan '/', anggap sebagai index.html
+    const currentPage = pathFull.endsWith('/') || pathFull === '' ? "index.html" : pathFull;
+
     const currentIndex = daftarHalaman.findIndex(link => {
-        // Normalisasi path agar cocok baik di hosting maupun komputer lokal
-        return pathFull.endsWith(link) || pathFull.includes('/' + link);
+        return currentPage.includes(link);
     });
 
+    // JIKA HALAMAN DITEMUKAN DALAM DAFTAR
     if (currentIndex !== -1) {
         const navHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd; font-family: sans-serif;">
@@ -58,24 +60,22 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         document.body.insertAdjacentHTML('beforeend', navHTML);
 
-        // Event Listener Klik
-        document.getElementById("btnPrev")?.addEventListener("click", () => pindahHalaman(-1));
-        document.getElementById("btnNext")?.addEventListener("click", () => pindahHalaman(1));
+        document.getElementById("btnPrev")?.addEventListener("click", () => pindah(currentIndex - 1));
+        document.getElementById("btnNext")?.addEventListener("click", () => pindah(currentIndex + 1));
 
-        // Shortcut Keyboard
         document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowLeft") pindahHalaman(-1);
-            if (e.key === "ArrowRight") pindahHalaman(1);
+            if (e.key === "ArrowLeft" && currentIndex > 0) pindah(currentIndex - 1);
+            if (e.key === "ArrowRight" && currentIndex < daftarHalaman.length - 1) pindah(currentIndex + 1);
         });
     }
-
-    function pindahHalaman(arah) {
-        const targetIndex = currentIndex + arah;
-        if (targetIndex >= 0 && targetIndex < daftarHalaman.length) {
-            // Mencari path dasar (root) website
-            const rootPath = window.location.href.replace(daftarHalaman[currentIndex], "");
-            window.location.href = rootPath + daftarHalaman[targetIndex];
-        }
-    }
 });
+
+function pindah(targetIndex) {
+    if (targetIndex >= 0 && targetIndex < daftarHalaman.length) {
+        // Mencari alamat dasar website (URL Root)
+        const currentLink = daftarHalaman.find(l => window.location.pathname.includes(l)) || "index.html";
+        const rootPath = window.location.href.split(currentLink)[0];
+        window.location.href = rootPath + daftarHalaman[targetIndex];
+    }
+}
 </script>
