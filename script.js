@@ -22,3 +22,17 @@ document.addEventListener('keydown', (e) => {
     if (e.key === "ArrowRight") navigate('next');
     if (e.key === "ArrowLeft") navigate('prev');
 });
+// Menandai link yang aktif di navigasi atas
+window.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('#main-nav a');
+    const currentUrl = window.location.href;
+
+    navLinks.forEach(link => {
+        if (currentUrl === link.href) {
+            link.style.backgroundColor = "#007bff"; // Warna biru
+            link.style.color = "white";            // Tulisan putih
+            link.style.fontWeight = "bold";
+            link.style.borderColor = "#007bff";
+        }
+    });
+});
