@@ -35,36 +35,40 @@ const daftarHalaman = [
 document.addEventListener("DOMContentLoaded", function() {
     const fullPath = window.location.pathname;
 
-    // 1. Deteksi Halaman Saat Ini (Mencocokkan folder dan file)
+    // 1. Cari Index Halaman Sekarang
     let currentIndex = -1;
     for (let i = 0; i < daftarHalaman.length; i++) {
-        if (fullPath.includes(daftarHalaman[i]) || (i === 0 && fullPath.endsWith("/"))) {
+        // Deteksi kuat untuk file dalam folder atau di root
+        if (fullPath.includes("/" + daftarHalaman[i]) || (i === 0 && fullPath.endsWith("/"))) {
             currentIndex = i;
             break;
         }
     }
 
     if (currentIndex !== -1) {
-        // 2. Buat Tampilan (Clear Fix agar tidak berantakan)
+        // 2. Buat Navigasi Visual (Gaya diperbaiki agar rapi di bawah)
         const navHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; padding:20px; margin:50px auto 20px; border-top:2px solid #eee; max-width:900px; font-family:sans-serif; clear:both; width:100%;">
-                <button id="btnPrev" style="visibility:${currentIndex === 0 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:1px solid #ddd; background:#fff;">&larr; Kiri</button>
-                <div style="color:#777; font-size:14px;">Halaman ${currentIndex + 1} dari ${daftarHalaman.length}</div>
-                <button id="btnNext" style="visibility:${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:none; background:#007bff; color:#fff;">Kanan &rarr;</button>
+                <div style="flex:1; text-align:left;">
+                    <button id="btnPrev" style="visibility:${currentIndex === 0 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:1px solid #ddd; background:#fff;">&larr; Kiri</button>
+                </div>
+                <div style="flex:1; text-align:center; color:#777; font-size:14px;">Halaman ${currentIndex + 1} dari ${daftarHalaman.length}</div>
+                <div style="flex:1; text-align:right;">
+                    <button id="btnNext" style="visibility:${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:none; background:#007bff; color:#fff;">Kanan &rarr;</button>
+                </div>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', navHTML);
 
-        // 3. Logika Navigasi Paling Akurat (Root Path)
+        // 3. Logika Navigasi Paling Aman (Mencari Path Root)
         const navigasi = (targetIdx) => {
             if (targetIdx >= 0 && targetIdx < daftarHalaman.length) {
-                // Menghitung jarak folder (berapa kali harus naik ke ../)
-                const folderSekarang = daftarHalaman[currentIndex].split('/').length - 1;
-                let pathKeluar = "";
-                for (let j = 0; j < folderSekarang; j++) { pathKeluar += "../"; }
+                // Temukan alamat root dengan membuang path halaman saat ini dari URL
+                const currentRelPath = daftarHalaman[currentIndex];
+                const baseURL = window.location.href.split(currentRelPath)[0];
                 
-                // Pindah ke folder tujuan dari posisi root
-                window.location.href = pathKeluar + daftarHalaman[targetIdx];
+                // Pindah ke halaman tujuan dari folder utama
+                window.location.href = baseURL + daftarHalaman[targetIdx];
             }
         };
 
