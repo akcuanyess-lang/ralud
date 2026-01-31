@@ -54,6 +54,13 @@ body {
     border-color: #007bff;
     transform: translateY(-2px);
 }
+#main-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
 
 /* =========================================
    3. PEMBUNGKUS KONTEN (TENGAH)
