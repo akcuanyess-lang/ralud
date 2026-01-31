@@ -35,49 +35,57 @@ const daftarHalaman = [
 document.addEventListener("DOMContentLoaded", function() {
     const fullPath = window.location.pathname;
 
-    // Mencari index halaman saat ini
+    // 1. Cari Index Halaman Sekarang
     let currentIndex = -1;
     for (let i = 0; i < daftarHalaman.length; i++) {
-        // Cek apakah URL saat ini mengandung nama folder/file dari daftar
-        if (fullPath.includes("/" + daftarHalaman[i]) || (i === 0 && fullPath.endsWith("/"))) {
+        // Cek kecocokan nama folder/file
+        if (fullPath.includes(daftarHalaman[i]) || (i === 0 && (fullPath.endsWith("/") || fullPath.endsWith("index.html")))) {
             currentIndex = i;
             break;
         }
     }
 
     if (currentIndex !== -1) {
-        // Tambahkan HTML ke Body
-        const navHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd; font-family: sans-serif;">
-                <div style="flex: 1; text-align: left;">
-                    <button id="btnPrev" style="visibility: ${currentIndex === 0 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer;">&larr; Kiri</button>
-                </div>
-                <div style="flex: 1; text-align: center; font-size: 14px; color: #888;">
-                    Halaman ${currentIndex + 1} dari ${daftarHalaman.length}
-                </div>
-                <div style="flex: 1; text-align: right;">
-                    <button id="btnNext" style="visibility: ${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px;">Kanan &rarr;</button>
-                </div>
+        // 2. Pasang HTML dengan Gaya CSS agar tidak berantakan
+        const navContainer = document.createElement('div');
+        navContainer.style.cssText = "display:flex; justify-content:space-between; align-items:center; padding:20px; margin-top:50px; border-top:1px solid #ddd; clear:both; width:100%; box-sizing:border-box; font-family:sans-serif;";
+
+        navContainer.innerHTML = `
+            <div style="flex:1; text-align:left;">
+                <button id="btnPrev" style="visibility:${currentIndex === 0 ? 'hidden' : 'visible'}; padding:10px 20px; cursor:pointer; border-radius:5px; border:1px solid #ccc; background:#fff;">&larr; Kiri</button>
+            </div>
+            <div style="flex:1; text-align:center; font-size:14px; color:#888;">
+                Halaman ${currentIndex + 1} dari ${daftarHalaman.length}
+            </div>
+            <div style="flex:1; text-align:right;">
+                <button id="btnNext" style="visibility:${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding:10px 20px; cursor:pointer; border-radius:5px; border:none; background:#007bff; color:white;">Kanan &rarr;</button>
             </div>
         `;
-        document.body.insertAdjacentHTML('beforeend', navHTML);
+        
+        document.body.appendChild(navContainer);
 
-        // Fungsi navigasi yang lebih aman
+        // 3. Fungsi Navigasi yang mencari folder utama (root)
         const navigasi = (targetIdx) => {
             if (targetIdx >= 0 && targetIdx < daftarHalaman.length) {
-                // Menghitung base URL (kembali ke folder utama)
-                const depth = (daftarHalaman[currentIndex].match(/\//g) || []).length;
-                const prefix = depth > 0 ? "../".repeat(depth) : "";
-                window.location.href = prefix + daftarHalaman[targetIdx];
+                // Tentukan lokasi root
+                let root;
+                if (window.location.pathname.includes('/')) {
+                    // Jika di dalam folder, kita ambil bagian domain saja
+                    root = window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf(daftarHalaman[currentIndex]));
+                } else {
+                    root = "./";
+                }
+                window.location.href = root + daftarHalaman[targetIdx];
             }
         };
 
-        document.getElementById("btnPrev")?.addEventListener("click", () => navigasi(currentIndex - 1));
-        document.getElementById("btnNext")?.addEventListener("click", () => navigasi(currentIndex + 1));
+        document.getElementById("btnPrev").onclick = () => navigasi(currentIndex - 1);
+        document.getElementById("btnNext").onclick = () => navigasi(currentIndex + 1);
 
-        document.addEventListener('keydown', (e) => {
+        // 4. Keyboard Shortcut
+        document.onkeydown = (e) => {
             if (e.key === "ArrowLeft") navigasi(currentIndex - 1);
             if (e.key === "ArrowRight") navigasi(currentIndex + 1);
-        });
+        };
     }
 });
