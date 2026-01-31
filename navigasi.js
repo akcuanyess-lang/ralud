@@ -35,59 +35,51 @@ const daftarHalaman = [
 document.addEventListener("DOMContentLoaded", function() {
     const fullPath = window.location.pathname;
 
-    // 1. Cari Index Halaman Sekarang berdasarkan daftar
+    // 1. Cari Index Halaman Sekarang
     let currentIndex = -1;
     for (let i = 0; i < daftarHalaman.length; i++) {
-        // Deteksi apakah URL mengandung path dari daftarHalaman
         if (fullPath.endsWith(daftarHalaman[i]) || fullPath.includes("/" + daftarHalaman[i])) {
             currentIndex = i;
             break;
         }
     }
     
-    // Fallback: jika di halaman utama banget (/) anggap index.html
+    // Jika tidak ketemu (halaman utama tanpa tulisan index.html)
     if (currentIndex === -1 && (fullPath.endsWith("/") || fullPath === "")) {
         currentIndex = 0;
     }
 
     if (currentIndex !== -1) {
-        // 2. Buat Navigasi Visual
+        // 2. Tampilkan Navigasi
         const navHTML = `
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin: 40px auto; border-top: 1px solid #ddd; max-width: 800px; font-family: sans-serif; clear: both;">
-                <div style="flex: 1; text-align: left;">
-                    <button id="btnPrev" style="visibility: ${currentIndex === 0 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; background: #fff;">&larr; Kiri</button>
-                </div>
-                <div style="flex: 1; text-align: center; font-size: 14px; color: #666;">
-                    Halaman ${currentIndex + 1} dari ${daftarHalaman.length}
-                </div>
-                <div style="flex: 1; text-align: right;">
-                    <button id="btnNext" style="visibility: ${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding: 10px 20px; cursor: pointer; border-radius: 5px; border: none; background: #007bff; color: white;">Kanan &rarr;</button>
-                </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:20px; margin:40px auto; border-top:2px solid #eee; max-width:900px; font-family:sans-serif; clear:both;">
+                <button id="btnPrev" style="visibility:${currentIndex === 0 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:1px solid #ddd; background:#fff;">&larr; Kiri</button>
+                <div style="color:#777; font-size:14px;">Halaman ${currentIndex + 1} dari ${daftarHalaman.length}</div>
+                <button id="btnNext" style="visibility:${currentIndex === daftarHalaman.length - 1 ? 'hidden' : 'visible'}; padding:12px 24px; cursor:pointer; border-radius:6px; border:none; background:#007bff; color:#fff;">Kanan &rarr;</button>
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', navHTML);
 
-        // 3. Logika Perpindahan Halaman (PENTING)
-        const navigasi = (targetIdx) => {
+        // 3. Logika Navigasi Paling Aman
+        const navigasi = (arah) => {
+            const targetIdx = currentIndex + arah;
             if (targetIdx >= 0 && targetIdx < daftarHalaman.length) {
-                // Hitung berapa folder kita harus keluar (../)
-                // Contoh: dari '2/index.html', kita butuh '../' satu kali
-                const currentFile = daftarHalaman[currentIndex];
-                const folderDepth = (currentFile.match(/\//g) || []).length;
-                let prefix = "";
-                for(let i=0; i<folderDepth; i++) { prefix += "../"; }
-
-                window.location.href = prefix + daftarHalaman[targetIdx];
+                // MENCARI FOLDER UTAMA
+                // Kita ambil URL saat ini, buang bagian "folder/index.html" nya
+                const currentRelPath = daftarHalaman[currentIndex];
+                const baseURL = window.location.href.split(currentRelPath)[0];
+                
+                // Gabungkan baseURL dengan tujuan baru
+                window.location.href = baseURL + daftarHalaman[targetIdx];
             }
         };
 
-        document.getElementById("btnPrev")?.addEventListener("click", () => navigasi(currentIndex - 1));
-        document.getElementById("btnNext")?.addEventListener("click", () => navigasi(currentIndex + 1));
+        document.getElementById("btnPrev").onclick = () => navigasi(-1);
+        document.getElementById("btnNext").onclick = () => navigasi(1);
 
-        // Shortcut Keyboard
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowLeft") navigasi(currentIndex - 1);
-            if (e.key === "ArrowRight") navigasi(currentIndex + 1);
-        });
+        document.onkeydown = (e) => {
+            if (e.key === "ArrowLeft") navigasi(-1);
+            if (e.key === "ArrowRight") navigasi(1);
+        };
     }
 });
