@@ -1,3 +1,32 @@
+/* Membuat Konten berada di tengah dan terpisah dari navigasi */
+.content-wrapper {
+    max-width: 800px;    /* Lebar konten maksimal */
+    margin: 40px auto;   /* Jarak atas-bawah dan rata tengah */
+    padding: 20px;
+    background: #ffffff; /* Warna putih bersih untuk konten */
+    border: 1px solid #eee;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-height: 60vh;    /* Agar konten punya ruang minimal */
+}
+
+/* Navigasi Atas tetap di atas */
+#main-nav {
+    background-color: #f8f9fa;
+    padding: 15px;
+    position: sticky;    /* Membuat navigasi menempel saat di-scroll */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Footer Navigasi di paling bawah */
+.footer-nav {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 2px solid #ddd;
+}
 #main-nav {
     position: sticky;
     top: 0;
