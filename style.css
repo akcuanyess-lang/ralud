@@ -15,26 +15,36 @@ body {
 #main-nav {
     display: flex !important;
     flex-direction: row !important;
+    justify-content: center !important; /* MEMAKSA KE TENGAH SECARA HORIZONTAL */
+    align-items: center !important;     /* MEMAKSA KE TENGAH SECARA VERTIKAL */
     flex-wrap: wrap !important;
-    justify-content: center !important; /* INI YANG MENARUH KE TENGAH */
-    align-items: center !important;
-    gap: 10px !important;
+    gap: 12px !important;
     padding: 20px !important;
     background: white !important;
     width: 100% !important;
-    border-bottom: 1px solid #ddd;
+    margin: 0 auto !important;          /* MEMASTIKAN KONTAINERNYA DI TENGAH */
+    border-bottom: 2px solid #eee;
+    text-align: center !important;      /* CADANGAN JIKA FLEXBOX GAGAL */
 }
 
 #main-nav a {
-    display: inline-block !important;
+    display: inline-flex !important;    /* MEMBUAT LINK SEPERTI KOTAK */
+    justify-content: center !important;
+    align-items: center !important;
     text-decoration: none !important;
-    color: #333 !important;
-    padding: 10px 15px !important; /* Ukuran kotak angka */
-    border: 1px solid #333 !important;
-    border-radius: 5px !important;
-    background: #fff !important;
-    min-width: 40px;
-    text-align: center;
+    color: #007bff !important;
+    padding: 10px 18px !important;
+    border: 2px solid #007bff !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    background: white !important;
+    min-width: 45px !important;
+    transition: all 0.3s ease;
+}
+
+#main-nav a:hover {
+    background: #007bff !important;
+    color: white !important;
 }
 
 /* KONTEN TENGAH */
