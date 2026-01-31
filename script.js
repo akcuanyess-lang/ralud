@@ -1,35 +1,24 @@
 function navigate(direction) {
     const navLinks = Array.from(document.querySelectorAll('#main-nav a'));
-    const currentPath = window.location.pathname;
-    
+    const currentUrl = window.location.href;
+
+    // Logika pencocokan URL yang lebih kuat
     let currentIndex = navLinks.findIndex(link => {
-        const linkPath = new URL(link.href).pathname;
-        return currentPath.endsWith(linkPath) || linkPath.endsWith(currentPath);
+        const absoluteLink = new URL(link.href).href;
+        // Cek apakah URL sekarang mengandung alamat link tersebut
+        return currentUrl === absoluteLink || currentUrl.split('?')[0] === absoluteLink;
     });
 
     if (direction === 'next' && currentIndex < navLinks.length - 1) {
         window.location.href = navLinks[currentIndex + 1].href;
-    } else if (direction === 'prev' && currentIndex > 0) {
+    } 
+    else if (direction === 'prev' && currentIndex > 0) {
         window.location.href = navLinks[currentIndex - 1].href;
     }
 }
 
+// Tambahkan pencegahan eror jika tombol ditekan terlalu cepat
 document.addEventListener('keydown', (e) => {
     if (e.key === "ArrowRight") navigate('next');
     if (e.key === "ArrowLeft") navigate('prev');
-});
-
-// Update status tombol saat halaman dimuat
-window.addEventListener('DOMContentLoaded', () => {
-    const navLinks = Array.from(document.querySelectorAll('#main-nav a'));
-    const currentPath = window.location.pathname;
-    let currentIndex = navLinks.findIndex(link => link.href.includes(currentPath));
-
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    if (prevBtn && nextBtn) {
-        if (currentIndex <= 0) prevBtn.disabled = true;
-        if (currentIndex === navLinks.length - 1 || currentIndex === -1) nextBtn.disabled = true;
-    }
 });
