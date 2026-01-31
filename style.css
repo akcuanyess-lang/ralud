@@ -27,6 +27,11 @@
     background-color: #f8f9fa;
     border-top: 2px solid #ddd;
 }
+body {
+    background-color: #e9ecef; /* Warna abu-abu muda di luar konten */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 #main-nav {
     position: sticky;
     top: 0;
