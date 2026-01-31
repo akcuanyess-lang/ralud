@@ -85,3 +85,20 @@ body {
     margin-left: 0 !important;
     padding-left: 0 !important;
 }
+/* Tambahkan ini di bagian paling bawah style.css */
+#main-nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* Memastikan body tidak memberikan dorongan ke kiri */
+body {
+    text-align: center; 
+}
+
+/* Mengembalikan teks konten agar tetap rata kiri/kanan (opsional) */
+.content-wrapper {
+    text-align: left; 
+}
