@@ -1,6 +1,6 @@
  <script>
-// DAFTAR URUTAN HALAMAN (Sesuaikan persis dengan folder/file Anda)
 const daftarHalaman = [
+    "index.html", // Halaman Utama
     "2/index.html",
     "3/index.html",
     "hal4-17/index.html",
@@ -34,14 +34,15 @@ const daftarHalaman = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Cari tahu kita sedang di halaman mana
-    const pathSekarang = window.location.pathname;
+    const pathFull = window.location.pathname;
     
-    // Mencari index halaman saat ini di dalam daftarHalaman
-    const currentIndex = daftarHalaman.findIndex(link => pathSekarang.includes(link.split('/')[0]));
+    // Mencari halaman saat ini dalam daftar
+    const currentIndex = daftarHalaman.findIndex(link => {
+        // Normalisasi path agar cocok baik di hosting maupun komputer lokal
+        return pathFull.endsWith(link) || pathFull.includes('/' + link);
+    });
 
     if (currentIndex !== -1) {
-        // 2. Tambahkan Tampilan Tombol secara Otomatis
         const navHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-top: 30px; border-top: 1px solid #ddd; font-family: sans-serif;">
                 <div style="flex: 1; text-align: left;">
@@ -57,22 +58,23 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         document.body.insertAdjacentHTML('beforeend', navHTML);
 
-        // 3. Fungsi Klik Tombol
-        document.getElementById("btnPrev")?.addEventListener("click", () => navigasi(-1));
-        document.getElementById("btnNext")?.addEventListener("click", () => navigasi(1));
+        // Event Listener Klik
+        document.getElementById("btnPrev")?.addEventListener("click", () => pindahHalaman(-1));
+        document.getElementById("btnNext")?.addEventListener("click", () => pindahHalaman(1));
 
-        // 4. Shortcut Keyboard (Panah Kiri & Kanan)
+        // Shortcut Keyboard
         document.addEventListener('keydown', (e) => {
-            if (e.key === "ArrowLeft") navigasi(-1);
-            if (e.key === "ArrowRight") navigasi(1);
+            if (e.key === "ArrowLeft") pindahHalaman(-1);
+            if (e.key === "ArrowRight") pindahHalaman(1);
         });
     }
 
-    function navigasi(arah) {
+    function pindahHalaman(arah) {
         const targetIndex = currentIndex + arah;
         if (targetIndex >= 0 && targetIndex < daftarHalaman.length) {
-            // Berpindah ke folder utama lalu ke file tujuan
-            window.location.href = window.location.origin + "/" + daftarHalaman[targetIndex];
+            // Mencari path dasar (root) website
+            const rootPath = window.location.href.replace(daftarHalaman[currentIndex], "");
+            window.location.href = rootPath + daftarHalaman[targetIndex];
         }
     }
 });
