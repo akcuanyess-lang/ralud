@@ -61,7 +61,7 @@ body {
 .content-wrapper {
     max-width: 850px;       /* Lebar konten agar tidak terlalu melar */
     margin: 30px auto;      /* Rata tengah otomatis */
-    background: #ffffff;
+    background: red;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
