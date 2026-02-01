@@ -12,23 +12,48 @@ body {
 }
 
 /* NAVIGASI ATAS - PASTI DI TENGAH */
-html body #main-nav {
+/* Pastikan tidak ada scroll horizontal */
+html, body {
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Navigasi: Sederhana tapi Pasti di Tengah */
+#main-nav {
     display: flex !important;
-    justify-content: center !important; /* Dorong isi ke tengah */
-    align-items: center !important;
+    justify-content: center !important; 
     flex-wrap: wrap !important;
     gap: 10px !important;
-    padding: 20px !important;
-    background: white !important;
-    
-    /* INI KUNCINYA: Pastikan wadahnya selebar layar */
+    padding: 20px 10px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid #ddd;
+    /* Jangan pakai 100vw, pakai ini saja */
     width: 100% !important; 
-    min-width: 100vw !important; /* Pastikan selebar jendela browser */
-    
-    margin: 0 auto !important;
-    position: relative !important;
-    left: 0 !important;
-    border-bottom: 2px solid #eee !important;
+    box-sizing: border-box !important;
+}
+
+#main-nav a {
+    display: inline-block !important;
+    text-decoration: none !important;
+    padding: 8px 12px !important;
+    border: 1px solid #007bff !important;
+    border-radius: 4px !important;
+    color: #007bff !important;
+    font-weight: bold !important;
+    white-space: nowrap !important; /* Agar angka tidak turun ke bawah sendiri */
+}
+
+/* Perbaikan Konten agar tidak terpotong */
+.content-wrapper {
+    max-width: 90% !important; /* Mengikuti lebar layar HP/Laptop */
+    width: 800px; /* Lebar maksimal di laptop */
+    margin: 20px auto !important; /* WAJIB AUTO agar di tengah */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-sizing: border-box !important;
 }
 
 /* KONTEN TENGAH - TETAP DI TENGAH */
