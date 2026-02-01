@@ -12,33 +12,39 @@ body {
 }
 
 /* NAVIGASI ATAS - PASTI DI TENGAH */
-#main-nav {
+/* Kita buat targetnya sangat spesifik agar tidak dicoret lagi */
+html body #main-nav {
     display: flex !important;
-    justify-content: center !important; /* Horisontal Tengah */
-    align-items: center !important;     /* Vertikal Tengah */
+    flex-direction: row !important;
     flex-wrap: wrap !important;
-    gap: 10px;
-    padding: 20px;
-    background: white;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    list-style: none; /* Menghilangkan titik jika ada <ul> */
+    justify-content: center !important; /* HARUS KE TENGAH */
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 20px !important;
+    background: white !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-bottom: 2px solid #eee !important;
+    text-align: center !important;
 }
 
-#main-nav a {
-    text-decoration: none;
-    color: #007bff;
-    padding: 8px 15px;
-    border: 2px solid #007bff;
-    border-radius: 6px;
-    font-weight: bold;
-    background: white;
-    transition: 0.3s;
+/* Supaya angka di dalam link tidak dicoret */
+html body #main-nav a {
+    display: inline-block !important;
+    text-decoration: none !important;
+    color: #007bff !important; /* Warna biru */
+    padding: 8px 15px !important;
+    border: 2px solid #007bff !important;
+    border-radius: 6px !important;
+    font-weight: bold !important; /* Paksa tebal */
+    background: white !important;
+    transition: 0.3s !important;
 }
 
-#main-nav a:hover {
-    background: #007bff;
-    color: white;
+/* Efek saat mouse menunjuk angka */
+html body #main-nav a:hover {
+    background: #007bff !important;
+    color: white !important;
 }
 
 /* KONTEN TENGAH - TETAP DI TENGAH */
