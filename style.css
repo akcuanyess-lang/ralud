@@ -12,39 +12,23 @@ body {
 }
 
 /* NAVIGASI ATAS - PASTI DI TENGAH */
-/* Kita buat targetnya sangat spesifik agar tidak dicoret lagi */
 html body #main-nav {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important; /* HARUS KE TENGAH */
+    justify-content: center !important; /* Dorong isi ke tengah */
     align-items: center !important;
+    flex-wrap: wrap !important;
     gap: 10px !important;
     padding: 20px !important;
     background: white !important;
-    width: 100% !important;
+    
+    /* INI KUNCINYA: Pastikan wadahnya selebar layar */
+    width: 100% !important; 
+    min-width: 100vw !important; /* Pastikan selebar jendela browser */
+    
     margin: 0 auto !important;
+    position: relative !important;
+    left: 0 !important;
     border-bottom: 2px solid #eee !important;
-    text-align: center !important;
-}
-
-/* Supaya angka di dalam link tidak dicoret */
-html body #main-nav a {
-    display: inline-block !important;
-    text-decoration: none !important;
-    color: #007bff !important; /* Warna biru */
-    padding: 8px 15px !important;
-    border: 2px solid #007bff !important;
-    border-radius: 6px !important;
-    font-weight: bold !important; /* Paksa tebal */
-    background: white !important;
-    transition: 0.3s !important;
-}
-
-/* Efek saat mouse menunjuk angka */
-html body #main-nav a:hover {
-    background: #007bff !important;
-    color: white !important;
 }
 
 /* KONTEN TENGAH - TETAP DI TENGAH */
