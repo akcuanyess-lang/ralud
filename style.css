@@ -1,4 +1,4 @@
-/* 1. RESET TOTAL: Menghilangkan margin bawaan browser yang bikin berantakan */
+/* RESET SEMUA JARAK */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,87 +7,76 @@
 
 html, body {
     width: 100% !important;
-    overflow-x: hidden !important; /* Mencegah layar bisa digeser ke kanan-kiri */
+    overflow-x: hidden !important;
     background-color: #f0f2f5;
-    font-family: Arial, sans-serif;
-    padding-bottom: 100px; /* Ruang agar konten tidak tertutup tombol bawah */
+    /* PAKSA SEMUA ANAK BODY KE TENGAH */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
+    text-align: center;
 }
 
-/* 2. NAVIGASI ATAS: Pastikan angka di tengah */
+/* NAVIGASI ATAS */
 #main-nav {
+    width: 100% !important;
     display: flex !important;
     justify-content: center !important;
     flex-wrap: wrap !important;
     gap: 8px;
-    padding: 15px;
+    padding: 20px;
     background: white;
-    width: 100% !important;
     border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 #main-nav a {
+    display: inline-block !important;
     text-decoration: none;
     color: #007bff;
     padding: 8px 12px;
     border: 1px solid #007bff;
     border-radius: 4px;
     font-weight: bold;
-    background: white;
 }
 
-/* 3. KONTEN UTAMA: Menarik kembali konten ke tengah layar */
+/* KONTEN TENGAH - KITA PAKSA POSISI NYA */
 .content-wrapper {
     display: block !important;
-    width: 95% !important; /* Lebar fleksibel untuk HP */
-    max-width: 850px !important; /* Lebar maksimal di Laptop */
-    margin: 30px auto !important; /* KUNCI: auto kiri-kanan membuat posisi di TENGAH */
+    width: 90% !important;
+    max-width: 800px !important;
     background: white;
     padding: 30px;
+    margin: 30px 0 !important; /* Margin atas-bawah saja, kiri-kanan dipindah align-items body */
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     
-    /* Menetralkan perintah geser yang mungkin tersisa */
-    position: relative !important;
-    left: 0 !important;
-    transform: none !important; 
-    text-align: left;
+    /* Pastikan teks di dalam tetap rata kiri agar enak dibaca */
+    text-align: left !important;
+    
+    /* Netralkan semua sisa perintah posisi */
+    position: static !important; 
+    float: none !important;
 }
 
-/* 4. TOMBOL NAVIGASI BAWAH: Melayang di pojok */
+/* TOMBOL NAVIGASI BAWAH */
 .button-container {
     position: fixed !important;
     bottom: 25px;
     left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-    pointer-events: none; /* Supaya area kosong tidak menghalangi klik konten */
-    z-index: 2000;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0 30px !important;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 .nav-btn {
-    pointer-events: auto; /* Tombol harus bisa diklik */
+    pointer-events: auto;
     padding: 12px 25px;
     background: #007bff;
     color: white;
     border: none;
     border-radius: 50px;
-    cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* 5. KHUSUS HP: Agar tidak sempit */
-@media (max-width: 600px) {
-    .content-wrapper {
-        padding: 15px;
-        margin: 15px auto !important;
-    }
-    .button-container {
-        padding: 0 15px;
-    }
+    cursor: pointer;
 }
